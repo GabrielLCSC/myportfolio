@@ -1,8 +1,10 @@
 "use client"
 
 import type { COBEOptions } from "cobe"
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
+import { GithubIcon, Linkedin01Icon } from "@hugeicons/core-free-icons"
 
-import { profile } from "@/lib/portfolio"
+import { profile, socials } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { buttonVariants } from "@/components/ui/button"
@@ -10,10 +12,17 @@ import { Globe } from "@/components/ui/globe"
 import { MagicCard } from "@/components/ui/magic-card"
 import { Section, SectionHeading } from "@/components/front/section"
 
+const contactSocialIcons: Partial<
+  Record<(typeof socials)[number]["name"], IconSvgElement>
+> = {
+  GitHub: GithubIcon,
+  LinkedIn: Linkedin01Icon,
+}
+
 const globeConfig: COBEOptions = {
   width: 800,
   height: 800,
-  onRender: () => {},
+  onRender: () => { },
   devicePixelRatio: 2,
   phi: 0,
   theta: 0.25,
@@ -50,15 +59,38 @@ export function Contact() {
                   Le SaaS n’est pas encore public. Le reste du parcours l’est.
                 </p>
               </div>
-              <a
-                href={`mailto:${profile.email}`}
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "w-fit bg-neutral-950 text-white hover:bg-neutral-800"
-                )}
-              >
-                {profile.email}
-              </a>
+              <div className="flex flex-col items-start gap-4">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "w-fit bg-neutral-950 text-white hover:bg-neutral-800"
+                  )}
+                >
+                  {profile.email}
+                </a>
+                <div className="flex gap-1 sm:hidden">
+                  {socials
+                    .filter((item) => item.name !== "Email")
+                    .map((item) => {
+                      const icon = contactSocialIcons[item.name]
+                      if (!icon) return null
+
+                      return (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={item.name}
+                          className="flex size-10 items-center justify-center rounded-full text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950"
+                        >
+                          <HugeiconsIcon icon={icon} size={18} />
+                        </a>
+                      )
+                    })}
+                </div>
+              </div>
             </div>
           </MagicCard>
         </BlurFade>

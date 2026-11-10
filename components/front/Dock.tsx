@@ -8,7 +8,6 @@ import {
     Layers01Icon,
     Linkedin01Icon,
     Mail01Icon,
-    NewTwitterIcon,
     Route01Icon,
 } from "@hugeicons/core-free-icons"
 
@@ -80,13 +79,23 @@ function DockLink({
     )
 }
 
+function SocialLinks({ className }: { className?: string }) {
+    return socials.map((item) => (
+        <DockLink
+            key={item.name}
+            href={item.href}
+            label={item.name}
+            icon={socialIcons[item.name]}
+            external={item.name !== "Email"}
+            className={className}
+        />
+    ))
+}
+
 export function SiteDock() {
     return (
         <div className="pointer-events-none fixed inset-x-0 bottom-5 z-50 flex justify-center px-3">
-            <nav
-                aria-label="Sections du site"
-                className="pointer-events-auto w-full max-w-full overflow-x-auto [scrollbar-width:none]"
-            >
+            <nav aria-label="Sections du site" className="pointer-events-auto">
                 <TooltipProvider>
                     <Dock
                         direction="middle"
@@ -104,16 +113,7 @@ export function SiteDock() {
                             orientation="vertical"
                             className="hidden h-full bg-neutral-200 sm:block"
                         />
-                        {socials.map((item) => (
-                            <DockLink
-                                key={item.name}
-                                href={item.href}
-                                label={item.name}
-                                icon={socialIcons[item.name]}
-                                external={item.name !== "Email"}
-                                className="hidden sm:flex"
-                            />
-                        ))}
+                        <SocialLinks className="hidden sm:flex" />
                     </Dock>
                 </TooltipProvider>
             </nav>
