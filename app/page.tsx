@@ -1,19 +1,23 @@
-import { Button } from "@/components/ui/button"
+import { Contact } from "@/components/front/contact"
+import { SiteDock } from "@/components/front/Dock"
+import { Experience } from "@/components/front/experience"
+import { Hero } from "@/components/front/hero"
+import { Stack } from "@/components/front/stack"
+import { Work } from "@/components/front/work"
+import { ScrollProgress } from "@/components/ui/scroll-progress"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <ScrollProgress className="from-neutral-400 via-neutral-900 to-neutral-500" />
+      <main>
+        <Hero />
+        <Work />
+        <Experience />
+        <Stack />
+        <Contact />
+      </main>
+      <SiteDock />
+    </>
   )
 }
