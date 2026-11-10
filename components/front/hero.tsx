@@ -17,10 +17,11 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-24 pb-36"
     >
       <DotPattern
+        interactive
         width={22}
         height={22}
         cr={1}
-        className="text-neutral-300/80 [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]"
+        className="[mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]"
       />
       <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
         <BlurFade>

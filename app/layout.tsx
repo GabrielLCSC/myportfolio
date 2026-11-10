@@ -6,9 +6,26 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Gabriel Dautreppe",
-  description:
-    "Gabriel Dautreppe, développeur web. OOEO Agency, Routard.com, et un SaaS en construction.",
+  title: "Portfolio Gabriel Dautreppe",
+  description: "Mon parcours et mes expériences dans le développement de solutions web.",
+  icons: {
+    icon: [{ url: "/icons/logo_gab.png", type: "image/png" }],
+    apple: [{ url: "/icons/logo_gab.png", type: "image/png" }],
+  },
+  openGraph: {
+    title: "Portfolio Gabriel Dautreppe",
+    description: "Mon parcours et mes expériences dans le développement de solutions web.",
+    images: [
+      {
+        url: "/icons/logo_gab.png",
+        alt: "Gabriel Dautreppe",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/icons/logo_gab.png"],
+  },
 }
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'})
