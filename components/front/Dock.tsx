@@ -64,7 +64,7 @@ function DockLink({
                                 : {})}
                             className={cn(
                                 buttonVariants({ variant: "ghost", size: "icon" }),
-                                "size-10 rounded-full text-neutral-800 hover:bg-neutral-100 hover:text-neutral-950"
+                                "size-10 rounded-full text-neutral-800 hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-white"
                             )}
                         />
                     }
@@ -99,7 +99,7 @@ export function SiteDock() {
                 <TooltipProvider>
                     <Dock
                         direction="middle"
-                        className="mx-auto mt-0 w-max border-neutral-200 bg-white/80"
+                        className="mx-auto mt-0 w-max border-neutral-200 bg-white/80 dark:border-neutral-800 dark:bg-neutral-950/80"
                     >
                         {navigation.map((item) => (
                             <DockLink
@@ -111,7 +111,7 @@ export function SiteDock() {
                         ))}
                         <Separator
                             orientation="vertical"
-                            className="hidden h-full bg-neutral-200 sm:block"
+                            className="hidden h-full bg-neutral-200 sm:block dark:bg-neutral-800"
                         />
                         <SocialLinks className="hidden sm:flex" />
                     </Dock>

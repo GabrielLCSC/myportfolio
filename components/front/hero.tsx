@@ -25,13 +25,13 @@ export function Hero() {
       />
       <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
         <BlurFade>
-          <AnimatedShinyText className="inline-flex text-sm font-medium text-neutral-600">
+          <AnimatedShinyText className="inline-flex text-sm font-medium text-neutral-600 dark:text-neutral-400">
             {profile.availability}
           </AnimatedShinyText>
         </BlurFade>
 
         <div className="flex max-w-3xl flex-col gap-3">
-          <h1 className="text-5xl font-semibold tracking-tight text-neutral-950 sm:text-7xl">
+          <h1 className="text-5xl font-semibold tracking-tight text-neutral-950 sm:text-7xl dark:text-neutral-50">
             <TextAnimate
               as="span"
               by="word"
@@ -43,18 +43,18 @@ export function Hero() {
               {profile.headline}
             </TextAnimate>
           </h1>
-          <BlurFade delay={0.15} className="flex flex-wrap items-baseline gap-x-3 text-2xl text-neutral-500 sm:text-3xl">
+          <BlurFade delay={0.15} className="flex flex-wrap items-baseline gap-x-3 text-2xl text-neutral-500 sm:text-3xl dark:text-neutral-400">
             <span>Passé par</span>
             <WordRotate
               words={words}
               duration={2200}
-              className="text-2xl font-medium text-neutral-950 sm:text-3xl"
+              className="text-2xl font-medium text-neutral-950 sm:text-3xl dark:text-neutral-50"
             />
           </BlurFade>
         </div>
 
         <BlurFade delay={0.25}>
-          <p className="max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
+          <p className="max-w-xl text-base leading-7 text-neutral-600 sm:text-lg dark:text-neutral-400">
             {profile.lead}
           </p>
         </BlurFade>
@@ -64,7 +64,7 @@ export function Hero() {
             href="#projets"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "bg-neutral-950 text-white hover:bg-neutral-800"
+              "bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
             )}
           >
             Voir les projets
@@ -73,7 +73,7 @@ export function Hero() {
             href="#contact"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-100"
+              "border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900"
             )}
           >
             Me contacter
@@ -81,10 +81,10 @@ export function Hero() {
         </BlurFade>
 
         <BlurFade delay={0.45}>
-          <dl className="grid max-w-2xl grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
+          <dl className="grid max-w-2xl grid-cols-3 gap-6 border-t border-neutral-200 pt-8 dark:border-neutral-800">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <dt className="text-3xl font-semibold tracking-tight text-neutral-950">
+                <dt className="text-3xl font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">
                   <NumberTicker value={stat.value} />
                 </dt>
                 <dd className="mt-1 text-sm text-neutral-500">{stat.label}</dd>

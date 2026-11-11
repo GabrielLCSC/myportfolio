@@ -225,7 +225,10 @@ function InteractiveDotField({
           const full = cr * (REST_RADIUS + swell * PEAK_GROWTH)
           const radius = full + (cr * 0.42 - full) * shrink
 
-          ctx.fillStyle = `rgba(${DOT_COLOR.r}, ${DOT_COLOR.g}, ${DOT_COLOR.b}, ${0.34 + swell * 0.46})`
+          const dark = document.documentElement.classList.contains("dark")
+          const color = dark ? { r: 186, g: 186, b: 186 } : DOT_COLOR
+
+          ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.34 + swell * 0.46})`
           ctx.beginPath()
           ctx.arc(px, py, radius, 0, Math.PI * 2)
           ctx.fill()
@@ -264,6 +267,15 @@ function InteractiveDotField({
       start()
     }
 
+    const themeObserver = new MutationObserver(() => {
+      draw(performance.now())
+      start()
+    })
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
     const observer = new ResizeObserver(resize)
     observer.observe(parent)
     parent.addEventListener("pointermove", onMove)
@@ -273,6 +285,7 @@ function InteractiveDotField({
     return () => {
       if (frame) cancelAnimationFrame(frame)
       observer.disconnect()
+      themeObserver.disconnect()
       parent.removeEventListener("pointermove", onMove)
       parent.removeEventListener("pointerleave", onLeave)
     }

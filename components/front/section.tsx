@@ -31,7 +31,7 @@ export function SectionHeading({
       <p className="text-xs font-medium tracking-[0.2em] text-neutral-500 uppercase">
         {label}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl dark:text-neutral-50">
         {title}
       </h2>
     </BlurFade>

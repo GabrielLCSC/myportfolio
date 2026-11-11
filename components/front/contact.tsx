@@ -11,6 +11,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { Globe } from "@/components/ui/globe"
 import { MagicCard } from "@/components/ui/magic-card"
 import { Section, SectionHeading } from "@/components/front/section"
+import { useTheme } from "next-themes"
+import { useMemo } from "react"
 
 const contactSocialIcons: Partial<
   Record<(typeof socials)[number]["name"], IconSvgElement>
@@ -37,6 +39,19 @@ const globeConfig: COBEOptions = {
 }
 
 export function Contact() {
+  const { resolvedTheme } = useTheme()
+  const dark = resolvedTheme === "dark"
+  const globe = useMemo(
+    () => ({
+      ...globeConfig,
+      dark: dark ? 1 : 0,
+      baseColor: dark ? ([0.16, 0.16, 0.16] as [number, number, number]) : ([1, 1, 1] as [number, number, number]),
+      markerColor: dark ? ([0.9, 0.9, 0.9] as [number, number, number]) : ([0.12, 0.12, 0.12] as [number, number, number]),
+      glowColor: dark ? ([0.25, 0.25, 0.25] as [number, number, number]) : ([0.9, 0.9, 0.9] as [number, number, number]),
+    }),
+    [dark]
+  )
+
   return (
     <Section id="contact" className="pb-40">
       <SectionHeading
@@ -46,16 +61,16 @@ export function Contact() {
       <div className="grid items-stretch gap-6 lg:grid-cols-2">
         <BlurFade inView>
           <MagicCard
-            className="h-full rounded-3xl bg-white"
+            className="h-full rounded-3xl bg-white dark:bg-neutral-900"
             gradientFrom="#737373"
             gradientTo="#171717"
-            gradientColor="#f4f4f5"
+            gradientColor={dark ? "#262626" : "#f4f4f5"}
             gradientOpacity={0.9}
           >
             <div className="relative z-40 flex h-full flex-col justify-between gap-8 p-8">
               <div className="flex flex-col gap-3">
                 <p className="text-sm text-neutral-500">{profile.name}</p>
-                <p className="max-w-sm text-2xl font-semibold tracking-tight text-neutral-950">
+                <p className="max-w-sm text-2xl font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">
                   Le SaaS n’est pas encore public. Le reste du parcours l’est.
                 </p>
               </div>
@@ -64,7 +79,7 @@ export function Contact() {
                   href={`mailto:${profile.email}`}
                   className={cn(
                     buttonVariants({ size: "lg" }),
-                    "w-fit bg-neutral-950 text-white hover:bg-neutral-800"
+                    "w-fit bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
                   )}
                 >
                   {profile.email}
@@ -83,7 +98,7 @@ export function Contact() {
                           target="_blank"
                           rel="noreferrer"
                           aria-label={item.name}
-                          className="flex size-10 items-center justify-center rounded-full text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950"
+                          className="flex size-10 items-center justify-center rounded-full text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
                         >
                           <HugeiconsIcon icon={icon} size={18} />
                         </a>
@@ -96,8 +111,8 @@ export function Contact() {
         </BlurFade>
 
         <BlurFade inView delay={0.08}>
-          <div className="relative h-80 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 lg:h-full lg:min-h-80">
-            <Globe className="top-8" config={globeConfig} />
+          <div className="relative h-80 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 lg:h-full lg:min-h-80 dark:border-neutral-800 dark:bg-neutral-900">
+            <Globe className="top-8" config={globe} />
           </div>
         </BlurFade>
       </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import { useTheme } from "next-themes"
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 import {
   BrowserIcon,
@@ -29,6 +30,9 @@ const projectIcons = {
 }
 
 export function Work() {
+  const { resolvedTheme } = useTheme()
+  const dark = resolvedTheme === "dark"
+
   return (
     <Section id="projets">
       <SectionHeading
@@ -50,19 +54,19 @@ export function Work() {
               Icon={Icon}
               background={
                 <>
-                  <span className="pointer-events-none absolute top-5 right-6 font-mono text-5xl text-neutral-200">
+                  <span className="pointer-events-none absolute top-5 right-6 font-mono text-5xl text-neutral-200 dark:text-neutral-700">
                     0{index + 1}
                   </span>
                   {project.featured ? (
                     <BorderBeam
                       size={140}
                       duration={9}
-                      colorFrom="#171717"
-                      colorTo="#d4d4d4"
+                      colorFrom={dark ? "#262626" : "#171717"}
+                      colorTo={dark ? "#737373" : "#d4d4d4"}
                       borderWidth={1}
                     />
                   ) : (
-                    <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-neutral-100 to-transparent" />
+                    <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-neutral-100 to-transparent dark:from-neutral-900" />
                   )}
                 </>
               }

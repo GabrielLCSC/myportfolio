@@ -4,7 +4,7 @@ import { Section, SectionHeading } from "@/components/front/section"
 
 function Chip({ label }: { label: string }) {
   return (
-    <span className="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-800">
+    <span className="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-800 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
       {label}
     </span>
   )
@@ -32,8 +32,8 @@ export function Stack() {
             <Chip key={item} label={item} />
           ))}
         </Marquee>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-white to-transparent dark:from-neutral-950" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-white to-transparent dark:from-neutral-950" />
       </div>
     </Section>
   )
