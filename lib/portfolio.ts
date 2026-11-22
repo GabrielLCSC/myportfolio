@@ -40,9 +40,9 @@ export const projects = [
     icon: "browser",
   },
   {
-    name: "SaaS",
+    name: "Personnel",
     description:
-      "Produit nouveau. Basé sur AWS avec un fort accent sur l'orchestration de jobs asynchrones. Mais shhht c'est un secret.",
+      "Tirer le meilleur parti de l'Intelligence Artificielle sans mettre en péril la souveraineté de ses données.",
     href: "#contact",
     cta: "Bientôt",
     className: "col-span-1",
@@ -82,9 +82,9 @@ export const experience = [
   {
     period: "2026 — aujourd’hui",
     role: "Entrepreneur",
-    company: "SaaS",
+    company: "Personnel",
     summary:
-      "Je co-fonde et construis un produit nouveau, de A à Z. Plus à venir sur ce sujet.",
+      "Démultiplier notre capacité à produire et décider avec l'IA, sans exposer ses données sensibles",
   },
   {
     period: "2024 — 2026",
