@@ -104,8 +104,8 @@ export const experience = [
 
 export const terminalLines = [
   "git log --oneline",
-  "2026  saas — front, back, cloud",
-  "2024  routard.com — features et gcp",
+  "2026  personnel — architecture cloud",
+  "2024  routard.com — features et GCP",
   "2023  ooeo — sites vitrines b2b",
 ]
 
