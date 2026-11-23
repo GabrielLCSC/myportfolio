@@ -18,7 +18,7 @@ export const navigation = [
 
 export const socials = [
   { name: "GitHub", href: "https://github.com/GabrielLCSC" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-dautreppe-iim/" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-dautreppe/" },
   { name: "Email", href: "mailto:gabriel.dautreppe@gmail.com" },
 ] as const
 
