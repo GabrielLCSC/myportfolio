@@ -104,9 +104,9 @@ export const experience = [
 
 export const terminalLines = [
   "git log --oneline",
-  "2026  personnel — architecture cloud",
-  "2024  routard.com — features et GCP",
-  "2023  ooeo — sites vitrines b2b",
+  "2026  feat(personnel): add skills",
+  "2024  feat(routard.com): create features",
+  "2023  feat(ooeo): push b2b landing pages",
 ]
 
 export const stack = [
