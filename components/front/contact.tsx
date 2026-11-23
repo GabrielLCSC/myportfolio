@@ -71,7 +71,7 @@ export function Contact() {
               <div className="flex flex-col gap-3">
                 <p className="text-sm text-neutral-500">{profile.name}</p>
                 <p className="max-w-sm text-2xl font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">
-                  Le SaaS n’est pas encore public. Le reste du parcours l’est.
+                  Mon dernier projet n’est pas encore public. Le reste du parcours l’est.
                 </p>
               </div>
               <div className="flex flex-col items-start gap-4">
